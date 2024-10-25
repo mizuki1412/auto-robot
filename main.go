@@ -2,27 +2,23 @@ package main
 
 import (
 	"github.com/mizuki1412/go-core-kit/v2/cli"
-	"github.com/mizuki1412/go-core-kit/v2/service/restkit"
 	"github.com/spf13/cobra"
+	"mizuki/project/auto-robot/mod/chromerob"
 )
 
 func main() {
 	cli.RootCMD(&cobra.Command{
 		Use: "main",
 		Run: func(cmd *cobra.Command, args []string) {
-
-			_ = restkit.Run()
+			//_ = restkit.Run()
 		},
 	})
 	c1 := &cobra.Command{
-		Use: "test",
+		Use: "web",
 		Run: func(cmd *cobra.Command, args []string) {
-
+			chromerob.Start()
 		},
 	}
-	c1.Flags().String("test", "", "")
-	c1.Flags().String("test1", "", "")
 	cli.AddChildCMD(c1)
-
 	cli.Execute()
 }
