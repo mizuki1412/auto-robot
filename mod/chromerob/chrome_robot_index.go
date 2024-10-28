@@ -18,13 +18,14 @@ func Start() {
 	browser := rod.New().ControlURL(u).MustConnect()
 	browser.MustIgnoreCertErrors(true)
 
-	if configkit.GetString("mod") == "douyin" {
+	switch configkit.GetString("mod") {
+	case "douyin":
 		LogicDouyin(browser)
+	case "fort36":
+		LogicFort36Login(browser)
+	case "fort38":
+		LogicFort38Login(browser)
 	}
-	//page := browser.MustPage("https://www.douyin.com/user/self?from_tab_name=main&showTab=favorite_collection")
-	//page.MustElement("#kw").MustInput("hello")
-	//page.MustElement("#su").MustClick()
-	//page.MustWaitStable()
 
 	defer browser.MustClose()
 	select {}

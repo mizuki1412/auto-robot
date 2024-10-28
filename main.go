@@ -20,7 +20,10 @@ func main() {
 			chromerob.Start()
 		},
 	}
-	c1.PersistentFlags().String("mod", "", "douyin/")
+	c1.PersistentFlags().String("mod", "", "douyin/fort36/fort38")
+	c1.PersistentFlags().String("fort.url", "", "堡垒机地址")
+	c1.PersistentFlags().String("fort.uname", "", "堡垒机登录用户")
+	c1.PersistentFlags().String("fort.pwd", "", "堡垒机登录密码")
 	cli.AddChildCMD(c1)
 	cli.Execute()
 }

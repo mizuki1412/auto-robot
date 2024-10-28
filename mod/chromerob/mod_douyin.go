@@ -50,8 +50,6 @@ func LogicDouyin(browser *rod.Browser) {
 		}
 	})
 	RequestHandleExec(page)
-	//page.MustElement("#kw").MustInput("hello")
-	//page.MustElement("#su").MustClick()
 
 	page.MustWaitStable()
 }
